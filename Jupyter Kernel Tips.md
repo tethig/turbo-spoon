@@ -10,15 +10,16 @@ Kernels are the engines that run inside the notebook. The IPython kernel is inst
 This is best installed as an app from the [disk images here](http://julialang.org/downloads/) (I'm not too keen on Juno - too complex).
 
 I’ve prepended the location to the PATH env variable in .bash_profile:
-``/Applications/Julia-0.4.6.app/Contents/Resources/julia/bin
 ```
-So to invoke julia you can just type:
-julia
+/Applications/Julia-0.4.6.app/Contents/Resources/julia/bin
+```
+So to invoke julia you can just type ```julia```.
 
 For the IJulia kernel [based on instructions here](https://github.com/JuliaLang/IJulia.jl):
 
 * Inside Julia just type:
-```Pkg.add(“Julia”)
+```
+Pkg.add(“Julia”)
 ```
 
 ###R
@@ -29,12 +30,14 @@ For the R kernel [based on instructions here](https://irkernel.github.io/install
 * open R by typing ```R``` in terminal (don't use the GUI).
 
 * then install the kernel:
-```install.packages(c('repr', 'IRdisplay', 'crayon', 'pbdZMQ', 'devtools'), repos='https://mirrors.ebi.ac.uk/CRAN')
+```
+install.packages(c('repr', 'IRdisplay', 'crayon', 'pbdZMQ', 'devtools'), repos='https://mirrors.ebi.ac.uk/CRAN')
 devtools::install_github('IRkernel/IRkernel')
 ```
 
 * must then make available for jupyter and generalise to all users
-```IRkernel::installspec()
+```
+IRkernel::installspec()
 IRkernel::installspec(user = FALSE)
 ```
 
@@ -44,7 +47,8 @@ IRkernel::installspec(user = FALSE)
 * In your server get used to keyboard shortcuts by selecting “Keyboard Shortcuts” from the Help menu.
 
 * If you know you’re in the right folder you can open a particular notebook straight from the terminal using:
-```jupyter notebook name_of_notebook.ipynb
+```
+jupyter notebook name_of_notebook.ipynb
 ```
 
 * When you’re done with a notebook remember to save it (File menu), then select “Close and halt” from the file menu to close it. To close the server return to the terminal window and type ```Ctrl-C``` to close the server down.

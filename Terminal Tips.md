@@ -15,7 +15,8 @@ Now you have a floating, semi-transparent, large space to work in. Take it or le
 ## Adjustments to BASH Profile
 Many times you need to do the same thing and typing a lot of things is tedious. If you don't have it already (check with ```ls -a```) make a file in you home directory called ```.bash_profile```. Here is the contents of mine:
 
-```# Setting PATH variable
+```
+# Setting PATH variable
 PATH="${HOME}/anaconda/bin:/Applications/Julia-0.4.6.app/Contents/Resources/julia/bin:${PATH}"
 PATH="${PATH}:/Applications/Postgres.app/Contents/Versions/latest/bin:${HOME}/Github/spades/assembler"
 export PATH
