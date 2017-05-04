@@ -23,12 +23,12 @@ Kernels are the engines that power an instance of a jupyter notebook. The iPytho
 If you are managing python with (Ana)conda, it is simplest to have jupyter installed in each python environment.
 
 ### Julia Core Language
-This is best installed as an app from the [disk images here](https://julialang.org/downloads/). I'm not too hot on Juno (which turns your Atom into an [IDE](https://en.wikipedia.org/wiki/Integrated_development_environment)) because it's rather complex, but you may feel differently).
+This is best installed as an app from the [disk images here](https://julialang.org/downloads/). I'm not too hot on Juno (which turns your Atom into an [IDE](https://en.wikipedia.org/wiki/Integrated_development_environment)) because it's rather complex, but you may feel differently.
 
 At the time of writing the current version of Julia is 0.5.1. I’ve prepended the location of the installed app (```/Applications/Julia-0.5.app/Contents/Resources/julia/bin```) to my PATH environmental variable in Terminal (see my Terminal Tips guidance also in this repository). After doing this you can simply invoke the Julia [REPL](https://en.wikipedia.org/wiki/Read–eval–print_loop) by typing ```julia``` in Terminal.
 
 ### iJulia Kernel
-For the IJulia kernel follow [these instructions](https://github.com/JuliaLang/IJulia.jl) carefully. If you've done everything as above, the short version is to type these commands into the Julia REPL:
+For the IJulia kernel follow [these instructions](https://github.com/JuliaLang/IJulia.jl) carefully. If you've done everything as above and your name (and home directory) is "ben" (!), the short version is to type these commands into the Julia REPL:
 ```
 ENV["JUPYTER"]="/Users/ben/anaconda/bin/jupyter"
 Pkg.add(“IJulia”)
@@ -43,7 +43,7 @@ For the R kernel based on instructions [here on the kernel GitHub page](https://
 
 * open R by typing ```R``` in terminal (don't use the GUI).
 
-* then install the kernel (I chose a UK repo):
+* then install the kernel (I pointed this to a UK mirror for installation):
 ```
 install.packages(c('repr', 'IRdisplay', 'evaluate', 'crayon', 'pbdZMQ', 'devtools', 'uuid', 'digest'), repos='https://mirrors.ebi.ac.uk/CRAN')
 devtools::install_github('IRkernel/IRkernel')
@@ -55,4 +55,4 @@ IRkernel::installspec(user = FALSE)
 ```
 
 ## Public Jupyter Notebooks
-Jupyter notebooks are supported natively by GitHub (I have some in my repos). There are also some other servers with example notebooks. The Jupyter project themselves have some samples [at this site](https://nbviewer.jupyter.org) and [at this site](https://try.jupyter.org).
+Jupyter notebooks are supported natively by GitHub ([this is one of my biological examples](https://github.com/tethig/simulations/blob/master/DFEM_py_nb.ipynb)). There are also some other servers with example notebooks. The Jupyter project themselves have some samples [at this site](https://nbviewer.jupyter.org) and [at this site](https://try.jupyter.org).
