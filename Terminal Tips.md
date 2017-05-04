@@ -17,8 +17,8 @@ Many times you need to do the same thing and typing a lot of things is tedious. 
 
 ```
 # Setting PATH variable
-PATH="${HOME}/anaconda/bin:/Applications/Julia-0.4.6.app/Contents/Resources/julia/bin:${PATH}"
-PATH="${PATH}:/Applications/Postgres.app/Contents/Versions/latest/bin:${HOME}/Github/spades/assembler"
+PATH="/Applications/Julia-0.5.app/Contents/Resources/julia/bin:$PATH"
+PATH="${HOME}/anaconda/bin:$PATH"
 export PATH
 
 # Pretty colours for ls (yellow/brown for directory)
@@ -30,17 +30,17 @@ export CUDA_HOME=/usr/local/cuda
 export DYLD_LIBRARY_PATH="${DYLD_LIBRARY_PATH}:${CUDA_HOME}/lib"
 export PATH="${CUDA_HOME}/bin:${PATH}"
 
-# Setting aliases (py27 is default conda env)
+# Setting aliases (py36 is default conda env)
 alias ..="cd .."
 alias cloud="cd ${HOME}/Library/Mobile\ Documents/com\~apple\~CloudDocs"
-alias ll="ls -al@"
-alias py35="source activate py35"
-alias py27="source deactivate"
+alias ll="ls -al"
+alias py27="source activate py27"
+alias py36="source deactivate"
 ```
 
 You can see in the first section I prepend (and then postpend) some directories to my PATH, before exporting. Anaconda directories must be prepended else python calls will reference the system python when in the default environment. You can interrogate the PATH variable using ```echo $PATH``` or all environmental variables using ```env```.
 
-In the second section I make some colour rules for the display of files according to their type. This is helpful for making the display more informative.
+In the second section I make some colour rules for the display of files according to their type (not able to recall/attribute where I first learned this). This is helpful for making the display more informative.
 
 In the third section I set some environmental variables specific to my system.
 
