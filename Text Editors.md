@@ -1,4 +1,5 @@
 # Text Editors
+## Basic Options
 Many excellent text editors exist and good basic starting places are:
 
 Operating System | Text Editor
@@ -36,26 +37,24 @@ tablr | really cool way to display CSVs - still gives toggle to raw display
 
 ### Somewhat less used packages
 These packages are good, but not always in use on my system:
-file-icons - gives file icons, but I inactivate this when using seti-ui (which comes with decent set; see below)
-language-arduino - you need an Arduino and a project!
-language-julia - Julia is cool, but you may not have it!
-git-time-machine - I haven't tried this yet.
+* file-icons - gives file icons, but I inactivate this when using seti-ui (which comes with decent set; see below)
+* language-arduino - you need an Arduino and a project!
+* language-julia - Julia is cool, but you may not have it!
+* git-time-machine - I haven't tried this yet.
 
 ### Themes
-Appearance is everything. Atom allows control of UI (user interface) and syntax display.
+Appearance is everything. Atom allows control of UI (user interface) and syntax display. My currently installed **and activated** (see Themes section in Settings) UI theme is:
+* seti-ui (brings icons with it as noted above)
 
-My currently installed **and activated** (see Themes section in Settings) UI theme is:
-seti-ui (brings icons with it as noted above)
-
-And for my syntax:
-monokai-seti
+And for my syntax theme:
+* monokai-seti
 
 A nice alternative set outside the defaults is:
-nord-atom-ui
-nord-atom-syntax
-*and activate "file-icons" from packages...*
+* nord-atom-ui
+* nord-atom-syntax
+* *and activate "file-icons" from packages...*
 
 ### Protecting your sleep
-This is obviously an aesthetic choice, but when working late a dark screen is restful. If you wish to reduce your melantopic flux check out [f.lux software](https://justgetflux.com). The latest MacOS update gives yellow screen options (in SysPref, but default off), but f.lux is pretty comprehensive.
+This is obviously an aesthetic choice, but when working late a dark screen is restful and healthful. On the latter, if you wish to reduce your melantopic lux check out [f.lux software](https://justgetflux.com). The latest MacOS update gives yellow screen options (in SysPref, but default off), but f.lux is pretty comprehensive.
 
 If you've no idea about the effects of light on health [read about it](http://dx.doi.org/10.1530/EC-16-0097).
