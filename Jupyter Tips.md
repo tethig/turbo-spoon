@@ -35,7 +35,7 @@ Pkg.add(“IJulia”)
 ```
 You should then be able to launch the notebook as above and create a new Julia notebook.
 
-### R Core
+### R Core Application
 Install R via the Comprehensive R Archive Network (CRAN; [choose a local mirror](https://cran.r-project.org/mirrors.html)). Mac users can, if they feel like it, find nightly builds on [this bleeding edge repository](http://r.research.att.com/). I use the R app only (and Atom for script editing), but new R users benefit from additionally installing and using [RStudio Open Source Edition](https://www.rstudio.com/products/RStudio/).
 
 ### iRkernel for Jupyter
