@@ -14,6 +14,9 @@ But I am a fan of Atom (see the [Atom website](https://atom.io)) made by the Git
 ### Settings
 The principle setting I change is to ensure that "Show Invisibles" is selected in the "Editor" section of Settings. This helps a lot with tracking indents, etc.
 
+### Multitasking trick I had figured out earlier
+Files open tentatively by default. You can double-tap them (in the pane or on their tabs) so that they open permanently (and are not replaced by other files you open).
+
 ### Packages I have installed
 You can install packages via the "Install" link in Settings. These are ones I have installed:
 
