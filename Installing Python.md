@@ -1,13 +1,13 @@
-# Installing Programming Languages
-I'm going to give some advice here on how to install programming languages. The focus is MacOS, but some of this is cross-platform. I cannot advise on Perl or Ruby installation (I have experimented with CPAN and RVM, but not satisfactorily).
+# Installing Python
+I'm going to give some advice here on how to install the python programming language. The focus is MacOS, but Anaconda is actually cross-platform. Regarding other languages, I cannot advise on Perl or Ruby installation (I have experimented with CPAN and RVM, but not satisfactorily).
 
-## Python Installation
+## Basic Approach: Virtual Environments
 I hugely prefer installing python via the [Anaconda distribution](https://www.continuum.io/downloads). Conda is a package manager which is very effective and the advantages of installing python this way is:
 
 * tight control of virtual environments,
 * isolation of these from the system python,
 * complete cross-platform support,
-* compatibility with pip.
+* compatibility with and tracking of pip.
 
 On the last point, you can still use ```pip freeze > requirements.txt``` and ```pip install -r requirements.txt``` to save and regenerate an environment between systems in addition to conda-specific commands (below).
 
