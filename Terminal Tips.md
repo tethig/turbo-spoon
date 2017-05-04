@@ -38,10 +38,10 @@ alias py27="source activate py27"
 alias py36="source deactivate"
 ```
 
-You can see in the first section I prepend (and then postpend) some directories to my PATH, before exporting. Anaconda directories must be prepended else python calls will reference the system python when in the default environment. You can interrogate the PATH variable using ```echo $PATH``` or all environmental variables using ```env```.
+You can see in the first section I prepend some directories to my PATH, before exporting. Anaconda directories must be prepended otherwise python calls will reference the system python when in the default environment. This is often added by a conda installation and is manipulated by conda when shifting virtual environment (see python installation guide in this repo). You can interrogate the PATH variable using ```echo $PATH```.
 
 In the second section I make some colour rules for the display of files according to their type (not able to recall/attribute where I first learned this). This is helpful for making the display more informative.
 
-In the third section I set some environmental variables specific to my system.
+In the third section I set some environmental variables specific to my system. You can interrogate all environmental variables using ```env```.
 
-In the last section I create some aliases. These save me typing. As you can see I am using this to access my elusive iCloud folder as well as to shortcut some frequently used terminal commands (including (de-)activation of conda virtual environments).
+In the last section I create some aliases. These save me typing. As you can see I am using this to access my elusive iCloud folder as well as to shortcut some frequently used terminal commands (including (de-)activation of conda virtual environments: again see my python guide).

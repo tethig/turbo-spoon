@@ -1,7 +1,7 @@
 # Installing Programming Languages
 I'm going to give some advice here on how to install programming languages. The focus is MacOS, but some of this is cross-platform. I cannot advise on Perl or Ruby installation (I have experimented with CPAN and RVM, but not satisfactorily).
 
-## Python installation
+## Python Installation
 I hugely prefer installing python via the [Anaconda distribution](https://www.continuum.io/downloads). Conda is a package manager which is very effective and the advantages of installing python this way is:
 
 * tight control of virtual environments,
@@ -18,10 +18,15 @@ I recommend installing Anaconda python 3.6 first so that your root conda environ
 conda create -n py27 python=2.7 anaconda biopython
 ```
 
-to create an additional python2 environment (assuming you want biopython in it also). I also create specialist environments for other projects (e.g., with ```django``` or ```tensorflow```).
+to create an additional python2 environment (assuming you want biopython in it also, otherwise omit). I also create specialist environments for other projects (e.g., with ```django``` or ```tensorflow```).
 
-## Python Script Headers
-Begin your python scripts with for example ```#!/usr/bin/env python3``` to call on the currently used python. If your script is executable you can then invoke it with ```./scriptname.py <ARGS>```. To change permissions (one time only) use ```chmod``` and the [appropriate octal code](http://permissions-calculator.org), e.g., ```chmod 755 myscript.py```.
+## Running Python Scripts
+I advise beginning your python scripts with a header line that points to the default python in the environent:
+```
+#!/usr/bin/env python3
+```
+
+If your script is executable (check with ```ls -l```) you can then invoke it with ```./scriptname.py <ARGS>```. If your script isn't executable, you can change permissions using the ```chmod``` command with the [appropriate octal code](http://permissions-calculator.org), e.g., ```chmod 755 myscript.py```. You only need to do this once.
 
 ## Useful *conda* Commands
 
@@ -48,29 +53,29 @@ you will note from my terminal tips document that I add aliases for these comman
 conda info --envs
 ```
 
-* To remove an environment and all its packages:
+* To remove an environment (e.g., phipy) and all its packages:
 ```
 conda remove --name phipy --all
 ```
 
 * You can't change environment names (for good reasons), but you can clone them:
 ```
-conda create --name ben --clone eb-virt
+conda create --name ben --clone phipy
 ```
 (then delete the old one).
 
 
 ## Bioconda Notes (early stage)
-The value of conda package management goes beyond python. Check out [bioconda](https://bioconda.github.io), a project in which conda is used to distribute otherwise difficult-to-install bioinformatics packages (see below). Here are some typical commmands (attribution for these includes bioconda website)
+The value of conda package management goes beyond python. Check out [bioconda](https://bioconda.github.io), a project in which conda is used to distribute otherwise difficult-to-install bioinformatics packages (see below). Here are some typical commmands (and these are taken from [the bioconda website](https://bioconda.github.io)):
 
-* adding channels (order matters)
+* adding channels (order matters for priority of access)
 ```
 conda config --add channels conda-forge
 conda config --add channels defaults
 conda config --add channels r
 conda config --add channels bioconda
 ```
-* checking channels
+* checking channels (and their priorities)
 ```
 conda config --get channels
 ```

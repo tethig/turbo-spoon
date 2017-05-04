@@ -8,7 +8,7 @@ MacOS | [TextWranger](http://www.barebones.com/products/textwrangler/)
 Ubuntu/Linux | gedit [built-in]
 Windows |[Notepad++](https://notepad-plus-plus.org)
 
-But I am a fan of Atom (see the [Atom website](https://atom.io)) made by the GitHub folks (if you're reading this you probably know a little about GitHub already). This is cross-platform, very easy to adjust to your preferences and a pleasure to use. There is a little bit of a learning curve to start with, but if you remember the main shortcut (Cmd-, on a mac) then you can always access the setting pane. Below is how I pimp my Atom (not formal advice).
+But I am a fan of Atom (see the [Atom website](https://atom.io)) made by the GitHub folks (if you're reading this you probably know a little about GitHub already). This is cross-platform, very easy to adjust to your preferences and a pleasure to use. There is a little bit of a learning curve to start with, but if you remember the main shortcut (Cmd-, on a mac) then you can always access the setting pane. Below is how I "pimp my Atom" (not formal advice).
 
 ## Atom Settings
 ### Settings
@@ -58,6 +58,6 @@ A nice alternative set outside the defaults is:
 * *and activate "file-icons" from packages...*
 
 ### Protecting your sleep
-This is obviously an aesthetic choice, but when working late a dark screen is restful and healthful. On the latter, if you wish to reduce your melantopic lux check out [f.lux software](https://justgetflux.com). The latest MacOS update gives yellow screen options (in SysPref, but default off), but f.lux is pretty comprehensive.
+Choosing themes is obviously an aesthetic matter, but when working late a dark screen is restful and healthful. On the latter, and if you wish to generally reduce your melantopic lux check out [f.lux software](https://justgetflux.com). The latest MacOS update gives yellow screen options (in SysPref, but default off), but f.lux seems more carefully designed to address the specific wavelengths of concern.
 
-If you've no idea about the effects of light on health [read about it](http://dx.doi.org/10.1530/EC-16-0097).
+If you've no idea about the effects of light on health [read about some of them](http://dx.doi.org/10.1530/EC-16-0097).
