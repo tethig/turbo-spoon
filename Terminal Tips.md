@@ -17,8 +17,8 @@ Many times you need to do the same thing and typing a lot of things is tedious. 
 
 ```
 # Setting PATH variable
-PATH="/Applications/Julia-0.5.app/Contents/Resources/julia/bin:$PATH"
-PATH="${HOME}/anaconda/bin:$PATH"
+PATH="${HOME}/anaconda/bin:/Applications/Julia-0.5.app/Contents/Resources/julia/bin:$PATH"
+PATH="${PATH}:/Applications/Postgres.app/Contents/Versions/latest/bin:${HOME}/Github/spades/assembler"
 export PATH
 
 # Pretty colours for ls (yellow/brown for directory)
@@ -33,15 +33,15 @@ export PATH="${CUDA_HOME}/bin:${PATH}"
 # Setting aliases (py36 is default conda env)
 alias ..="cd .."
 alias cloud="cd ${HOME}/Library/Mobile\ Documents/com\~apple\~CloudDocs"
-alias ll="ls -al"
+alias ll="ls -al@"
 alias py27="source activate py27"
 alias py36="source deactivate"
 ```
 
-You can see in the first section I prepend some directories to my PATH, before exporting. Anaconda directories must be prepended otherwise python calls will reference the system python when in the default environment. This is often added by a conda installation and is manipulated by conda when shifting virtual environment (see python installation guide in this repo). You can interrogate the PATH variable using ```echo $PATH```.
+You can see in the first section I pre- and post-pend some directories to my PATH, before exporting this environmental variable. Bash uses the PATH variable to search for executables matching whatever the user types into Terminal. Anaconda directories must be prepended otherwise python calls will reference the system python when in the default environment. This is often added by a conda installation (I've just neatened it up) and it is also manipulated when shifting virtual environments. You can interrogate the PATH variable using ```echo $PATH```. The paths I've added give immediate access to programs (e.g., by typing ```psql``` to access my Postgres server) so you don't need to put your data in the same folder as the programs you use to analyse it (=messy). An alternative is to place softlinks (using ```ln -s```) into ```/usr/local/bin```.
 
 In the second section I make some colour rules for the display of files according to their type (not able to recall/attribute where I first learned this). This is helpful for making the display more informative.
 
 In the third section I set some environmental variables specific to my system. You can interrogate all environmental variables using ```env```.
 
-In the last section I create some aliases. These save me typing. As you can see I am using this to access my elusive iCloud folder as well as to shortcut some frequently used terminal commands (including (de-)activation of conda virtual environments: again see my python guide).
+In the last section I create some aliases. These save me typing. As you can see I am using this to access my elusive iCloud folder as well as to shortcut some frequently used terminal commands (including (de-)activation of conda virtual environments: see my python guide).
