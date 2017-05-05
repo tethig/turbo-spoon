@@ -9,8 +9,6 @@ I hugely prefer installing python via the [Anaconda distribution](https://www.co
 * complete cross-platform support,
 * compatibility with and tracking of pip.
 
-On the last point, you can still use ```pip freeze > requirements.txt``` and ```pip install -r requirements.txt``` to save and regenerate an environment between systems in addition to conda-specific commands (below).
-
 Anaconda is a particular distribution of python with conda and a group of scientific packages in common use with python (e.g., ```numpy```, ```matplotlib``` and ```jupyter```: I have written a separate guide to jupyter installation). It is then easy to install additional packages you may need (such as ```biopython```). If you want a more minimal install try [Miniconda](https://conda.io/miniconda.html) which basically gives you the package management and python.
 
 I recommend installing Anaconda python 3.6 first so that your root conda environment is python3. Then you can use:
@@ -36,7 +34,24 @@ conda update conda
 conda update anaconda
 ```
 
-* Spring cleaning if you've been updating a lot:
+* To install a new package (you can use conda (preferred) or pip if needed), e.g.:
+```
+conda install tensorflow
+pip install git+https://github.com/tflearn/tflearn.git
+```
+
+* Conda tracks changes made my pip so you can see all packages installed by conda and pip using:
+```
+conda list
+```
+
+* And you can still use pip to store and regenerate dependencies:
+```
+source_env $ pip freeze > requirements.txt
+sink_env   $ pip install -r requirements.txt
+```
+
+* You can do some spring cleaning if you've been updating a lot:
 ```
 conda clean --packages --tarballs
 ```
