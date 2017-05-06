@@ -17,7 +17,7 @@ The notebook is installed as part of the Anaconda environment. At the time of wr
 *  to find out where jupyter keeps stuff: ```jupyter --paths```.
 
 ## Adding Kernels
-Kernels are the engines that power an instance of a jupyter notebook. The iPython kernel is installed automatically with jupyter. Julia and R are optional - but I believe that's why it's called jupyter...
+Kernels are the engines that power an instance of a jupyter notebook. The iPython kernel is installed automatically with jupyter. Julia and R are optional - that's why it's called JuPyteR. For a full list of available kernels [check here](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels).
 
 ### Additional Python Versions
 If you are managing python with (Ana)conda, it is simplest to have jupyter installed in each python environment.
