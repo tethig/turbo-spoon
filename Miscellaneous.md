@@ -51,3 +51,8 @@ Organisations:
 Folks to Keep an Eye on:
 * [Anton Nekrutenko](https://galaxyproject.org): Penn State ([Github repo](https://github.com/nekrut))
 * [James Taylor](http://jamestaylor.org): Johns Hopkins ([Github repo](https://github.com/jxtx))
+
+## Visualisations
+* [Data Visualisation Catalogue](http://www.datavizcatalogue.com)
+* [Seeing Theory](http://students.brown.edu/seeing-theory/)
+* [Visualizing Statistics](http://www.zoology.ubc.ca/~whitlock/kingfisher/KFhomepage.htm)
