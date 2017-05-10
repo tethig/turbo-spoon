@@ -55,4 +55,5 @@ Folks to Keep an Eye on:
 ## Visualisations
 * [Data Visualisation Catalogue](http://www.datavizcatalogue.com)
 * [Seeing Theory](http://students.brown.edu/seeing-theory/)
+* [Visualizing Algorithms](https://bost.ocks.org/mike/algorithms/)
 * [Visualizing Statistics](http://www.zoology.ubc.ca/~whitlock/kingfisher/KFhomepage.htm)
