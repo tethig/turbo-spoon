@@ -20,3 +20,4 @@ Here are some sites that have proven to be useful for learning/reinforcing stati
 - [Seeing Theory](http://students.brown.edu/seeing-theory/)
 - [Visualizing Algorithms](https://bost.ocks.org/mike/algorithms/)
 - [Visualizing Statistics](http://www.zoology.ubc.ca/~whitlock/kingfisher/KFhomepage.htm)
+- [Explained Visually](http://setosa.io/ev/)
