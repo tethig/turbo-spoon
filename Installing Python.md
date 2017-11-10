@@ -28,9 +28,14 @@ If your script is executable (check with ```ls -l```) you can then invoke it wit
 
 ## Useful *conda* Commands
 
-* To update conda and then anaconda:
+* To update conda and all installed packages:
 ```
 conda update conda
+conda update —all
+```
+
+* To update installed anaconda packages:
+```
 conda update anaconda
 ```
 
@@ -80,14 +85,13 @@ conda create --name ben --clone phipy
 (then delete the old one).
 
 
-## Bioconda Notes (early stage)
-The value of conda package management goes beyond python. Check out [bioconda](https://bioconda.github.io), a project in which conda is used to distribute otherwise difficult-to-install bioinformatics packages (see below). Here are some typical commmands (and these are taken from [the bioconda website](https://bioconda.github.io)):
+## Bioconda Notes
+The value of conda package management goes beyond python. Check out [bioconda](https://bioconda.github.io), a project in which conda is used to distribute otherwise difficult-to-install bioinformatics packages (see below). The [bioconda paper](https://doi.org/10.1101/207092) (in pre-print) has recently been released and is worth a look. Here are some typical commmands (and these are taken from [the bioconda website](https://bioconda.github.io)):
 
 * adding channels (order matters for priority of access)
 ```
 conda config --add channels conda-forge
 conda config --add channels defaults
-conda config --add channels r
 conda config --add channels bioconda
 ```
 * checking channels (and their priorities)
