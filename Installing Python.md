@@ -31,7 +31,7 @@ If your script is executable (check with ```ls -l```) you can then invoke it wit
 * To update conda and all installed packages:
 ```
 conda update conda
-conda update —-all
+conda update --all
 ```
 
 * To update installed anaconda packages:
