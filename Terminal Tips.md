@@ -13,10 +13,10 @@ If you want the same Terminal you've seen on my system, here is what I've done:
 Now you have a floating, semi-transparent, large space to work in. Take it or leave it...
 
 ## iTerm2
-You may prefer a complete replacement for Terminal. One such option is [iTerm2](https://iterm2.com). In this I use a profile (in Preferences) based on a colour scheme called "OceanicMaterial". To browser other themes see [this site](http://iterm2colorschemes.com). I have also selected "Install Shell Integration" from the iTerm2 menu (for effects of this see below). iTerm can also integrate with tmux, the next program.
+You may prefer a complete replacement for Terminal. One such option is [iTerm2](https://iterm2.com). In this I use a profile (in Preferences) based on a colour scheme called "OceanicMaterial". To browser other themes see [this site](http://iterm2colorschemes.com). I have also selected "Install Shell Integration" from the iTerm2 menu (for effects of this see below). iTerm can also integrate with [tmux](https://github.com/tmux/tmux/wiki), the next program.
 
 ## tmux
-I used to use the terminal multiplexer called "screen" (shortcut: Ctrl-a). I am now enthusiastic about "tmux" (shortcut Ctrl-b). Here is [excellent run through](http://www.hamvocke.com/blog/a-quick-and-easy-guide-to-tmux/)) of tmux. For installation simply type:
+I used to use the terminal multiplexer called "screen" (shortcut: Ctrl-a). I am now enthusiastic about "tmux" (shortcut Ctrl-b). Here is [excellent run through](http://www.hamvocke.com/blog/a-quick-and-easy-guide-to-tmux/) of tmux. For installation simply type:
 ```
 brew install tmux
 ```
@@ -24,18 +24,18 @@ or for Ubuntu systems:
 ```
 sudo apt install tmux
 ```
-The example above also shows a nice alternative to the "top" monitoring app called "htop" which can be installed in the same way (just sub htop for tmux in the code above).
+The tmux guide I've linked to also shows a nice alternative to the "top" monitoring app called "htop" which can be installed in the same way (substitute htop for tmux in the code above).
 
 ## Adjustments to BASH Profile
-So using BASH entails a lot of typing and therefore it is useful to adjust settings to reduce typing. For this is common to adjust a file called ```.bash_profile```. This file can set environmental variables in BASH (to see these type ```env```) and a particularly common instance is the PATH variable (to see this: ```echo $PATH```) which instructs BASH where to look for the meaning of what you just typed in. If you have programs stored in unique folders these need to be added to the PATH variable and you will see some of this below. However, there is a neater way to postpend folder paths to the PATH variable and this is [described here](http://postgresapp.com/documentation/cli-tools.html) for PostgresSQL (invoke as ```psql```). I've done similarly - adding a single file containing the PATH to my ```/etc/paths.d``` directory for my JuliaPro application:
+Using BASH entails a lot of typing so it is useful to adjust settings to reduce this. This can be achieved by editing a file called ```.bash_profile```. This file can be used to edit environmental variables in BASH (to see these type ```env```) and a particularly common instance is the PATH variable (to see this: ```echo $PATH```) which instructs BASH where to look for the meaning of user input. If you have programs stored in unique folders these folders can be added to the PATH variable for rapid access at the command line.
+
+It is possible to intervene earlier in the construction of the PATH variable. A neat way to postpend folder paths to the PATH variable is [described here for PostgresSQL](http://postgresapp.com/documentation/cli-tools.html) (invoke as ```psql```). As well as this, I've added a single file containing the path for my JuliaPro application to ```/etc/paths.d```:
 ```
 echo /Applications/JuliaPro-0.6.1.1.app/Contents/Resources/julia/Contents/Resources/julia/bin | sudo tee /etc/paths.d/julia
 ```
-Another method is to place softlinks (using ```ln -s```) into ```/usr/local/bin```.
+Another method is to place softlinks (using ```ln -s```) into ```/usr/local/bin```. However for (ana|mini)conda the installers tend to prepend the (e.g.) anaconda folder to the PATH variable. This means the conda version of (e.g.) python is invoked before the system version. This is useful for the user, but it is a problem for homebrew (the recipes for which assume a system python installation). An elegant solution for this problem is [described here (complete with mythological references)](https://hashrocket.com/blog/posts/keep-anaconda-from-constricting-your-homebrew-installs). I have adopted this solution wholesale to reduce conflict between homebrew and conda.
 
-However for (ana|mini)conda the installers tend to prepend the (e.g.) anaconda folder to the PATH variable. This is because you wish to invoke the conda version of (e.g.) python before the system version. This is usually fine, but it is a problem for homebrew. An elegant solution for this problem is [described here](https://hashrocket.com/blog/posts/keep-anaconda-from-constricting-your-homebrew-installs) (complete with mythological references). I have simply adopted this solution wholesale to reduce conflict between homebrew and conda.
-
-So here, acknowledging the above sources, is the contents of my ```.bash_profile``` in my home directory (recall that ```ls -a``` is required to detect secret files, beginning with a dot, in a folder):
+Acknowledging these sources, here is the contents of ```.bash_profile``` in my home directory (note that ```ls -a``` is required to detect files beginning with a dot in a folder):
 
 ```
 # Setting PATH proto-variable (with no snakes)
@@ -72,8 +72,10 @@ brew () {
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 ```
 
-In the pretty colours section I make some colour rules for the display of files according to their type. Unfortunately I am not able to recall/attribute where I first learned this. This is helpful for making ```ls``` more informative.
+In the pretty colours section, I make some colour rules for the display of files according to their type. Unfortunately I am not able to recall/attribute where I first learned this. This is helpful for making the output from ```ls``` more informative.
 
-In the setting aliases section I create some shortcuts to reduce typing. As you can see I am using this to access my elusive iCloud folder (MacOS only) as well as to shortcut some frequently used BASH commands. (I used to shortcut ```source activate env_name``` conda commands but I've decided that's too lazy now).
+In the setting aliases section, I create some shortcuts to reduce typing. As you can see I am using this to access my elusive iCloud folder (MacOS only) as well as to shortcut some frequently used BASH commands. (I used to shortcut ```source activate env_name``` conda commands but I've decided that's too lazy now).
 
-You can also see how the method describes above modifies the ```brew``` commands bookending it with commands to remove/return the prepended anaconda path from PATH. And you can see code added by iTerm2 for shell integration.
+You can see how the method linked above modifies the ```brew``` command, bookending it with calls to remove/return the prepended anaconda path from the PATH variable.
+
+Finally, you can see code added by iTerm2 for shell integration.
