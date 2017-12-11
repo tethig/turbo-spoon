@@ -35,19 +35,18 @@ echo /Applications/JuliaPro-0.6.1.1.app/Contents/Resources/julia/Contents/Resour
 ```
 Another method is to place softlinks (using ```ln -s```) into ```/usr/local/bin```. However for (ana|mini)conda the installers tend to prepend the (e.g.) anaconda folder to the PATH variable. This means the conda version of (e.g.) python is invoked before the system version. This is useful for the user, but it is a problem for homebrew (the recipes for which assume a system python installation). An elegant solution for this problem is [described here (complete with mythological references)](https://hashrocket.com/blog/posts/keep-anaconda-from-constricting-your-homebrew-installs). I have adopted this solution wholesale to reduce conflict between homebrew and conda.
 
-Acknowledging these sources, here is the contents of ```.bash_profile``` in my home directory (note that ```ls -a``` is required to detect files beginning with a dot in a folder):
+Acknowledging these sources, I can show you the contents of ```.bash_profile``` in my home directory (note that ```ls -a``` is required to detect files beginning with a dot in a folder). Just note that on my system my anaconda folder is ```anaconda/``` (it may be ```anaconda3/``` on yours):
 
 ```
-# Setting PATH proto-variable (with no snakes)
-NOCONDA="${PATH}"
-export NOCONDA
-
-# Setting default PATH variable (with snakes)
-export PATH="${HOME}/anaconda/bin:${NOCONDA}"
-
 # Some environmental variables for JuliaPro to fetch
 export PYTHON=${HOME}/anaconda/bin/python
 export JUPYTER=${HOME}/anaconda/bin/jupyter
+
+# Setting PATH proto-variable (can prepend here, just with no snakes)
+export NOCONDA="${PATH}"
+
+# Setting default PATH variable (with snakes)
+export PATH="${HOME}/anaconda/bin:${NOCONDA}"
 
 # Pretty colours for ls (yellow/brown for directory)
 export CLICOLOR=1

@@ -28,15 +28,19 @@ If your script is executable (check with ```ls -l```) you can then invoke it wit
 
 ## Useful *conda* Commands
 
-* To update conda and all installed packages:
+* To update conda itself:
 ```
 conda update conda
-conda update --all
 ```
 
-* To update installed anaconda packages:
+* To update installed packages in an anaconda environment:
 ```
 conda update anaconda
+```
+
+* To update all installed packages in a non-anaconda environment:
+```
+conda update --all
 ```
 
 * To install a new package (you can use conda (preferred) or pip if needed), e.g.:
