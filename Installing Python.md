@@ -54,7 +54,13 @@ pip install git+https://github.com/tflearn/tflearn.git
 conda list
 ```
 
-* And you can still use pip to store and regenerate dependencies:
+* You can store an environment on one machine and regenerate on another:
+```
+source_env $ conda env export -n <env-name> > environment.yml
+sink_env   $ conda env create -f environment.yml
+```
+
+* Or you can do this with pip too:
 ```
 source_env $ pip freeze > requirements.txt
 sink_env   $ pip install -r requirements.txt
@@ -77,14 +83,14 @@ you will note from my terminal tips document that I add aliases for these comman
 conda info --envs
 ```
 
-* To remove an environment (e.g., phipy) and all its packages:
+* To remove an environment and all its packages:
 ```
-conda remove --name phipy --all
+conda remove --name <env-name> --all
 ```
 
 * You can't change environment names (for good reasons), but you can clone them:
 ```
-conda create --name ben --clone phipy
+conda create --name <env-name-1> --clone <env-name-2>
 ```
 (then delete the old one).
 
