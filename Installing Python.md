@@ -100,8 +100,8 @@ The value of conda package management goes beyond python. Check out [bioconda](h
 
 * adding channels (order matters for priority of access)
 ```
-conda config --add channels conda-forge
 conda config --add channels defaults
+conda config --add channels conda-forge
 conda config --add channels bioconda
 ```
 * checking channels (and their priorities)
