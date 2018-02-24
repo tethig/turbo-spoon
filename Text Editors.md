@@ -4,7 +4,6 @@ Many excellent text editors exist and good basic starting places are:
 
 Operating System | Text Editor
 ---------------- | -----------
-MacOS | [TextWranger](http://www.barebones.com/products/textwrangler/)
 Ubuntu/Linux | gedit [built-in]
 Windows |[Notepad++](https://notepad-plus-plus.org)
 

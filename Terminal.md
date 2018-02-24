@@ -33,20 +33,20 @@ It is possible to intervene earlier in the construction of the PATH variable. A 
 ```
 echo /Applications/JuliaPro-0.6.1.1.app/Contents/Resources/julia/Contents/Resources/julia/bin | sudo tee /etc/paths.d/julia
 ```
-Another method is to place softlinks (using ```ln -s```) into ```/usr/local/bin```. However for (ana|mini)conda the installers tend to prepend the (e.g.) anaconda folder to the PATH variable. This means the conda version of (e.g.) python is invoked before the system version. This is useful for the user, but it is a problem for homebrew (the recipes for which assume a system python installation). An elegant solution for this problem is [described here (complete with mythological references)](https://hashrocket.com/blog/posts/keep-anaconda-from-constricting-your-homebrew-installs). I have adopted this solution wholesale to reduce conflict between homebrew and conda.
+Another method is to place softlinks (using ```ln -s```) into ```/usr/local/bin```. However for (ana|mini)conda the installers used to prepend the (e.g.) anaconda folder to the PATH variable. This meant that the conda version of (e.g.) python was invoked before the system version. This is useful for the user, but it was a problem for homebrew (the recipes for which assume a system python installation). An elegant solution for this problem is [described here](https://hashrocket.com/blog/posts/keep-anaconda-from-constricting-your-homebrew-installs), but since conda version 4.4 this is no longer required because conda does not activate its base environment by default. This change has effectively de-conflicted homebrew and conda.
 
-Acknowledging these sources, I can show you the contents of ```.bash_profile``` in my home directory (note that ```ls -a``` is required to detect files beginning with a dot in a folder). Just note that on my system my anaconda folder is ```anaconda/``` (it may be ```anaconda3/``` on yours):
+I can show you the contents of ```.bash_profile``` in my home directory (note that ```ls -a``` is required to detect files beginning with a dot in a folder). Just note that on my system my anaconda folder is ```anaconda3/``` (it may be ```anaconda/``` on yours):
 
 ```
 # Some environmental variables for JuliaPro to fetch
-export PYTHON=${HOME}/anaconda/bin/python
-export JUPYTER=${HOME}/anaconda/bin/jupyter
+export PYTHON=${HOME}/anaconda3/bin/python
+export JUPYTER=${HOME}/anaconda3/bin/jupyter
 
-# Setting PATH proto-variable (can prepend here, just with no snakes)
-export NOCONDA="${PATH}"
+# Deprecated PATH variable reset
+#export PATH="/anaconda3/bin:${PATH}"
 
-# Setting default PATH variable (with snakes)
-export PATH="${HOME}/anaconda/bin:${NOCONDA}"
+# Making conda command available
+. /anaconda3/etc/profile.d/conda.sh
 
 # Pretty colours for ls (yellow/brown for directory)
 export CLICOLOR=1
@@ -57,24 +57,12 @@ alias ..="cd .."
 alias ll="ls -al@"
 alias cloud="cd ${HOME}/Library/Mobile\ Documents/com\~apple\~CloudDocs"
 
-alias perseus="export PATH="\$NOCONDA" && echo Medusa decapitated."
-alias medusa="export PATH="\${HOME}/anaconda/bin:\$NOCONDA" && echo Perseus defeated."
-
-# Clear the snakes for homebrew
-brew () {
-  perseus
-  command brew "$@"
-  medusa
-}
-
 # Settings for iTerm2
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 ```
 
 In the pretty colours section, I make some colour rules for the display of files according to their type. Unfortunately I am not able to recall/attribute where I first learned this. This is helpful for making the output from ```ls``` more informative.
 
-In the setting aliases section, I create some shortcuts to reduce typing. As you can see I am using this to access my elusive iCloud folder (MacOS only) as well as to shortcut some frequently used BASH commands. (I used to shortcut ```source activate env_name``` conda commands but I've decided that's too lazy now).
-
-You can see how the method linked above modifies the ```brew``` command, bookending it with calls to remove/return the prepended anaconda path from the PATH variable.
+In the setting aliases section, I create some shortcuts to reduce typing. As you can see I am using this to access my elusive iCloud folder (MacOS only) as well as to shortcut some frequently used BASH commands.
 
 Finally, you can see code added by iTerm2 for shell integration.

@@ -1,7 +1,15 @@
-# Jupyter Tips
-Jupyter (formerly known as ipython notebook) is an [awesome project](http://jupyter.org) that can be used to share code in an executable format with rich annotation and support for graphical output. What follows is my notes on basic usage of Jupyter and installing kernels other than python. The prerequisite is to install python (and I would recommend doing this via [the anaconda website](https://www.continuum.io/downloads); see my guide to installing python in this repository).
+# Jupyter
+Jupyter (formerly known as ipython notebook) is an [awesome project](http://jupyter.org) that can be used to share code in an executable format with rich annotation and support for graphical output. What follows is my notes on basic usage of Jupyter and installing kernels other than python. The prerequisite is to install python (and I would recommend doing this via [the anaconda website](https://www.continuum.io/downloads); see my guide to (Ana)conda in this repository).
 
-The notebook is installed as part of the Anaconda environment. At the time of writing, the current jupyter_core version is 4.2.1. To check type whether your virtual environment includes jupyter components type ```conda list``` in Terminal. If jupyter is missing (perhaps because you are using miniconda) type ```conda install -c anaconda jupyter``` (-c means go get from anaconda environment). Note you can also add ```—-name env``` where env is name of environment you wish to install into, but it's easier just to work in active environment and switch environment to install in another (see my guide to installing python again).
+## Installation
+The notebook is installed as part of the Anaconda environment. At the time of writing, the current jupyter_core version is 4.4.0. To check type whether your virtual environment includes jupyter components type ```conda list``` in Terminal. If jupyter is missing (perhaps because you are using miniconda) type:
+ ```
+ conda install -c anaconda jupyter
+ ```
+The -c means to fetch the program from a specific channel, in this case the anaconda channel. Note you can also add ```—n env``` where env is name of environment you wish to install into. Thanks to [this repository](https://github.com/ageron/handson-ml) I can also recommend Jupyter extensions (optional):
+```
+conda install -c conda-forge jupyter_contrib_nbextensions
+```
 
 ## Running Jupyter
 * It’s as simple as typing ```jupyter notebook``` in Terminal. This serves a local host in your default browser.
