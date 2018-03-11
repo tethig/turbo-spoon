@@ -21,3 +21,5 @@ Here are some sites that have proven to be useful for learning/reinforcing stati
 - [Visualizing Algorithms](https://bost.ocks.org/mike/algorithms/)
 - [Visualizing Statistics](http://www.zoology.ubc.ca/~whitlock/kingfisher/KFhomepage.htm)
 - [Explained Visually](http://setosa.io/ev/)
+- [Fundamentals of Data Visualization](http://serialmentor.com/dataviz/)
+- [Python's seaborn library](http://seaborn.pydata.org)
