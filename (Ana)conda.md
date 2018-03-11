@@ -21,7 +21,7 @@ conda create -n py27 python=2.7 anaconda biopython
 to create an additional python2 environment (assuming you want biopython in it also, otherwise omit). You can create specialist environments for other projects - some examples include django (for web development) or tensorflow (for deep learning).
 
 ## Running Python Scripts
-I advise beginning your python scripts with a header line that points to the default python in the environent:
+I advise beginning your python scripts with a header line that points to the default python in the environment:
 ```
 #!/usr/bin/env python3
 ```
@@ -29,59 +29,34 @@ If your script is executable (check with ```ls -l```) you can then invoke it wit
 
 ## Useful *conda* Commands
 
-### Basic environment management
-* From version 4.4 onwards the default conda environment has become inactive by default in bash. To invoke it:
+### Installing packages and moving between environments
+* From version 4.4 onwards the default conda environment has become inactive by default. To invoke it:
 ```
 conda activate
 ```
-* To return to bash without conda:
+* To return to bash/zsh without conda:
 ```
 conda deactivate
 ```
-* You may be advised during the above that conda is not active in the current environment. To make conda commands accessible you may be advised to add the following line to .bash_profile (depending on conda's exact install location):
-```
-. /anaconda3/etc/profile.d/conda.sh
-```
-_If you have or have previously had an older version of conda the conda location is prepended to the PATH variable in this file (see my terminal tips document in this repo). If you've now updated to conda 4.4 you will be advised to remove this from .bash_profile - this is important and prevents cross-talk between homebrew and conda._
 
-* To activate/inactivate a virtual environment (e.g., py27) you've already installed:
+* To activate/deactivate a virtual environment (e.g., py27) you've already installed:
 ```
 conda activate py27
 conda deactivate
 ```
 
-### More environment management
-* To get information on current environments:
-```
-conda info --envs
-```
-
-* To update conda itself (be aware of channel priority - see below):
-```
-conda update conda
-```
-
-* To update installed packages in an anaconda environment this is recommended:
-```
-conda update anaconda
-```
-
-* To update all installed packages in a non-anaconda environment:
-```
-conda update --all
-```
-
-* To install a new package (you can use conda (preferred) or pip if needed), e.g.:
+* To install a new package in the current environment (you can use conda (preferred) or pip if needed), e.g.:
 ```
 conda install tensorflow
 pip install git+https://github.com/tflearn/tflearn.git
 ```
 
-* Conda tracks changes made my pip so you can see all packages installed by conda and pip using:
+* Conda tracks changes made by pip so you can see all packages installed by conda and pip using:
 ```
 conda list
 ```
 
+### Environment management
 * You can store an environment on one machine and regenerate on another:
 ```
 source_env $ conda env export -n <env-name> > environment.yml
@@ -94,9 +69,9 @@ source_env $ pip freeze > requirements.txt
 sink_env   $ pip install -r requirements.txt
 ```
 
-* You can do some spring cleaning if you've been updating a lot:
+* To get a list of current environments:
 ```
-conda clean --packages --tarballs
+conda info --envs
 ```
 
 * To remove an environment and all its packages:
@@ -110,29 +85,84 @@ conda create --name <env-name-1> --clone <env-name-2>
 ```
 (then delete the old one).
 
-
-## Bioconda and Channels
-The value of conda package management goes beyond python. Check out [bioconda](https://bioconda.github.io), a project in which conda is used to distribute otherwise difficult-to-install bioinformatics packages (see below). The [bioconda paper](https://doi.org/10.1101/207092) is worth a look. Here are some typical commmands (and these are taken from [the bioconda website](https://bioconda.github.io)):
-
-* adding channels (order matters for priority of access)
+* You may be advised at some point using conda that conda is not active/accessible to your shell. To make conda commands accessible you may be advised to add the following line to .bash_profile, .bashrc or .zshrc (depending on your shell and assuming conda's install location is /anaconda3/):
 ```
-conda config --add channels defaults
-conda config --add channels conda-forge
-conda config --add channels bioconda
+. /anaconda3/etc/profile.d/conda.sh
 ```
-_Note that after this packages will be installed from bioconda, then from conda-forge, then from defaults. At the time of writing conda-forge was installing conda < 4.4 - so be mindful of priority order for channels._
+If you have or have previously had an older version of conda the conda location is prepended to the PATH variable in this file (see my terminal tips document in this repo). If you've now updated to conda 4.4 you will be advised to remove this from .bash_profile - this is important and prevents cross-talk between homebrew and conda.
 
-* checking channels (and their priorities)
+### Updates, channels and pinning
+
+* Conda installs and updates from channels. To see a list of channels and their priorities:
 ```
 conda config --get channels
 ```
-* removing channels (e.g., pandas)
+Adding channels is covered in the next section.
+
+* Unless you've added more (next section) you will only have the defaults channel which references several Continuum sources. To see the URLs for these:
 ```
-conda config --remove channels pandas
+conda config --env --show default_channels
 ```
-_Note if you installed bioconda a long time back you may have added an R channel, I recommend removing if you don't need it._
+
+* To update conda itself:
+```
+conda update conda
+```
+
+* But other channels you use (and give priority to) may cause a rollback of some packages. At the time of writing I have pinned the conda package itself to the defaults channel to prevent its being downgraded by other channels:
+```
+conda config --system --add pinned_packages defaults::conda
+```
+
+* To reveal or undo pinned packages:
+```
+conda config --system --show pinned_packages
+conda config --system --remove pinned_packages defaults::conda
+```
+Nearly this exact change was [recommended here](https://www.anaconda.com/blog/developer-blog/how-to-get-ready-for-the-release-of-conda-4-4/) to prevent version "flipping" for conda-forge users.
+
+* To update installed packages in my base anaconda environment I currently use:
+```
+conda update -c defaults --all
+```
+
+* If you are using anaconda channels (check "Channel" column in output of ```conda list```) this is recommended:
+```
+conda update anaconda
+```
 
 * Install a particular package from a named channel (regardless of channel priority, e.g., oauth2client):
 ```
 conda install -c bioconda oauth2client
 ```
+You can also use ```-n``` as an option to push to an environment regardless of whether it is the current/active environment.
+
+* You can do some spring cleaning if you've been updating a lot:
+```
+conda clean --packages --tarballs
+```
+
+### Bioconda and Community Channels
+Check out [bioconda](https://bioconda.github.io), a project in which conda is used to distribute otherwise difficult-to-install bioinformatics packages. The [bioconda paper](https://doi.org/10.1101/207092) is worth a look. Here are some typical commmands (taken from [the bioconda website](https://bioconda.github.io)):
+
+* Adding community channels required for bioconda (order matters for priority of access):
+```
+conda config --add channels defaults
+conda config --add channels conda-forge
+conda config --add channels bioconda
+```
+Note that after this packages will be installed from bioconda, then from conda-forge, then from defaults. At the time of writing conda-forge was installing conda < 4.4 so consider pinning conda as noted above.
+
+* Remember you can check channels and their priorities:
+```
+conda config --get channels
+```
+* To see available package in conda-forge [visit this URL](https://conda-forge.org/feedstocks/).
+
+* To see available packages in bioconda [visit this URL](https://bioconda.github.io/recipes.html).
+
+* You can also remove channels (e.g., pandas):
+```
+conda config --remove channels pandas
+```
+Note if you installed bioconda a long time back you may have added an R channel, I recommend removing if you don't need it.
