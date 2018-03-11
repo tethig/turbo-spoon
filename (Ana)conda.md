@@ -1,4 +1,4 @@
-# Installing python via conda
+# The *conda* Package Manager: not just for python
 Conda is a package manager that can be used to install the python programming language and many other programs. As a package manager it makes light work of installing dependencies. Anaconda is a scientific python distribution (python + numerical/scientific libraries such as numpy, scipy, matplotlib, jupyter and scikit-learn) distributed via conda. For bioinformatics bioconda has become very prominent.
 
 This repo is a guide to installing and working with conda. The focus is MacOS, but (Ana)conda is cross-platform. I cannot advise on Perl or Ruby installation (I have experimented with CPAN and RVM, but not satisfactorily). I have written a separate guide to jupyter in this repo.
