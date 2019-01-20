@@ -45,7 +45,7 @@ Pkg.add(“IJulia”)
 You should then be able to launch the notebook as above and create a new Julia notebook. Or within Julia:
 ```
 using IJulia
-notebook()
+notebook(dir=pwd())
 ```
 
 ### R Core Application
