@@ -38,10 +38,15 @@ At the time of writing the current version of Julia is 0.5.1. I’ve prepended t
 ### iJulia Kernel
 For the IJulia kernel follow [these instructions](https://github.com/JuliaLang/IJulia.jl) carefully. If you've done everything as above and your name (and home directory) is "ben" (!), the short version is to type these commands into the Julia REPL:
 ```
-ENV["JUPYTER"]="/Users/ben/anaconda/bin/jupyter"
+ENV["JUPYTER"]="/anaconda3/bin/jupyter"
+using Pkg
 Pkg.add(“IJulia”)
 ```
-You should then be able to launch the notebook as above and create a new Julia notebook.
+You should then be able to launch the notebook as above and create a new Julia notebook. Or within Julia:
+```
+using IJulia
+notebook()
+```
 
 ### R Core Application
 Install R via the Comprehensive R Archive Network (CRAN; [choose a local mirror](https://cran.r-project.org/mirrors.html)). Mac users can, if they feel like it, find nightly builds on [this bleeding edge repository](http://r.research.att.com/). I use the R app only (and Atom for script editing), but new R users benefit from additionally installing and using [RStudio Open Source Edition](https://www.rstudio.com/products/RStudio/).
