@@ -1,4 +1,3 @@
 # turbo-spoon
-## Useful Approaches
 
-This repository collects together some useful resources and installation guides for MacOS/\*nix systems into a series of documents. Some of these tricks are extravagances, others are somewhat more important. If you wish to try bash on a Windows 10 computer [you could try this](https://www.howtogeek.com/249966/how-to-install-and-use-the-linux-bash-shell-on-windows-10/) (at your own risk).
+This repository is a miscellany of utilities and guides built up from various frustrating installation processes. The focus is on unix and MacOS. However, Windows users are now able to enter the fold thanks to the Windows Subsystem for Linux ([installation instructions here](https://docs.microsoft.com/en-us/windows/wsl/install)).
