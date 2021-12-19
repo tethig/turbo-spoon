@@ -52,3 +52,17 @@ Folks to Keep an Eye on:
 * [Anton Nekrutenko](https://galaxyproject.org): Penn State ([Github repo](https://github.com/nekrut))
 * [James Taylor](http://jamestaylor.org): Johns Hopkins ([Github repo](https://github.com/jxtx))
 * [David Narganes](https://github.com/davidnarganes)
+
+
+Git Guides
+Reference to [this link](https://vauxmaker.wordpress.com/2020/07/11/how-to-flatten-the-history-of-a-git-repository-safely/):
+```
+git checkout --orphan future-master
+git add -A # Add all files and commit them
+git commit # you will be prompted to add comment (or use -m)
+git branch -D master # Deletes the master branch
+git branch -m master # Rename the current branch to master
+git push -f origin master # Force push master branch to github
+git gc --aggressive --prune=all # remove the old files
+git push --set-upstream origin master # correct the upstream branch
+```
